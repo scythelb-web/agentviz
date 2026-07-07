@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: agentviz
+    runtime: docker
+    plan: starter
+    branch: master
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_CLIENT_ID
+        sync: false
+      - key: BASE_URL
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:////data/agentviz.db
+    disk:
+      name: agentviz-data
+      mountPath: /data
+      sizeGB: 1
