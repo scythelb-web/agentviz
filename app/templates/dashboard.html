@@ -12,6 +12,7 @@
     <nav class="border-b border-gray-800 px-6 py-4 flex justify-between items-center">
         <a href="/dashboard" class="text-xl font-bold text-purple-400">AgentViz</a>
         <div class="flex items-center gap-4">
+            <a href="/settings" class="text-gray-400 hover:text-white text-sm">Settings</a>
             <span class="text-gray-400 text-sm">{{ user.email }}</span>
             <a href="/auth/logout" class="text-gray-500 hover:text-gray-300 text-sm">Logout</a>
         </div>
@@ -22,11 +23,11 @@
         <!-- Connect Stripe -->
         <div class="bg-gray-900 rounded-xl p-8 border border-gray-800 text-center mb-8">
             <h2 class="text-2xl font-bold mb-3">Connect Your Stripe Account</h2>
-            <p class="text-gray-400 mb-6">AgentViz needs access to your Stripe transactions to show agent commerce analytics.</p>
-            <a href="/oauth/connect" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-semibold">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 11.675c-.103-.63-.708-1.09-1.432-1.09-.827 0-1.354.573-1.354 1.415 0 .842.527 1.415 1.354 1.415.724 0 1.329-.46 1.432-1.09h2.37c-.12 1.805-1.626 3.14-3.802 3.14-2.424 0-3.798-1.63-3.798-3.465 0-1.836 1.374-3.465 3.798-3.465 2.176 0 3.682 1.335 3.802 3.14h-2.37zM2 4.5A2.5 2.5 0 014.5 2h15A2.5 2.5 0 0122 4.5v15a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 19.5v-15z"/></svg>
-                Connect Stripe
+            <p class="text-gray-400 mb-6">Paste your Stripe secret key to start tracking agent commerce analytics.</p>
+            <a href="/settings" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-semibold">
+                ⚡ Connect Stripe
             </a>
+            <p class="text-gray-600 text-xs mt-3">Uses your API key directly. No OAuth setup needed.</p>
         </div>
         {% else %}
         <!-- Connected state -->

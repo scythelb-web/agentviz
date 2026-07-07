@@ -37,6 +37,15 @@ def sync_agent_transactions(stripe_account_id: str, access_token: str, user_id: 
     for agent-originated charges. The agent name appears in the PaymentIntent
     metadata under 'agent_name' or in the source description.
     """
+    return _sync_transactions(access_token, stripe_account_id, user_id, db, via_connect=True)
+
+
+def sync_agent_transactions_direct(api_key: str, stripe_account_id: str, user_id: int, db) -> int:
+    """Pull agent-tagged transactions using a direct API key (not OAuth)."""
+    return _sync_transactions(api_key, stripe_account_id, user_id, db, via_connect=False)
+
+
+def _sync_transactions(api_key: str, stripe_account_id: str, user_id: int, db, via_connect: bool) -> int:
     import datetime
     count = 0
 
@@ -45,12 +54,19 @@ def sync_agent_transactions(stripe_account_id: str, access_token: str, user_id: 
                          datetime.timedelta(days=90)).timestamp())
 
     try:
-        # List PaymentIntents, filter by metadata indicating agent source
-        payment_intents = stripe.PaymentIntent.list(
-            limit=100,
-            created={"gte": created_after},
-            stripe_account=stripe_account_id,
-        )
+        # When using OAuth/Connect, pass stripe_account; for direct key, omit it
+        list_kwargs = {
+            "limit": 100,
+            "created": {"gte": created_after},
+        }
+        if via_connect:
+            list_kwargs["stripe_account"] = stripe_account_id
+
+        # Use the provided api_key directly
+        import stripe as _stripe
+        _stripe.api_key = api_key
+
+        payment_intents = _stripe.PaymentIntent.list(**list_kwargs)
 
         for pi in payment_intents.auto_paging_iter():
             metadata = pi.get("metadata", {}) or {}

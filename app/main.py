@@ -21,9 +21,12 @@ static_dir = Path(__file__).parent / "static"
 static_dir.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
+from app.routers import auth, dashboard, oauth, settings
+
 app.include_router(auth.router)
 app.include_router(dashboard.router)
 app.include_router(oauth.router)
+app.include_router(settings.router)
 
 
 @app.on_event("startup")
