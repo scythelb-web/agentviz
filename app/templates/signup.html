@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — AgentViz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md px-6">
+        <div class="text-center mb-8">
+            <a href="/" class="text-2xl font-bold text-purple-400">AgentViz</a>
+            <p class="text-gray-400 mt-2">Create your account</p>
+        </div>
+
+        {% if error %}
+        <div class="bg-red-900/50 border border-red-700 text-red-200 px-4 py-3 rounded-lg mb-6">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" class="bg-gray-900 rounded-xl p-6 border border-gray-800 space-y-4">
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Email</label>
+                <input type="email" name="email" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-purple-500">
+            </div>
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Password</label>
+                <input type="password" name="password" required minlength="8" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-purple-500">
+            </div>
+            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 py-2.5 rounded-lg font-medium">Create Account</button>
+        </form>
+
+        <p class="text-center text-gray-500 mt-6 text-sm">
+            Already have an account? <a href="/auth/login" class="text-purple-400 hover:underline">Sign in</a>
+        </p>
+    </div>
+</body>
+</html>

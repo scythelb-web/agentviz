@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentViz — AI Agent Commerce Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+    <!-- Nav -->
+    <nav class="border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-xl font-bold text-purple-400">AgentViz</a>
+        <div class="space-x-4">
+            <a href="/auth/login" class="text-gray-300 hover:text-white">Login</a>
+            <a href="/auth/signup" class="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-lg text-white font-medium">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="max-w-4xl mx-auto px-6 pt-24 pb-16 text-center">
+        <h1 class="text-5xl font-bold mb-6">Track Revenue From <span class="text-purple-400">AI Agents</span></h1>
+        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+            AI agents are buying from your store. Know which agents drive revenue, 
+            track conversion rates, and see the agentic commerce channel grow — all in one dashboard.
+        </p>
+        <a href="/auth/signup" class="inline-block bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-lg text-lg font-semibold">
+            Start Free — Connect Stripe
+        </a>
+        <p class="text-sm text-gray-500 mt-4">No credit card required. Free for up to 1,000 agent transactions/month.</p>
+    </section>
+
+    <!-- Features -->
+    <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+            <div class="text-purple-400 text-2xl mb-3">📊</div>
+            <h3 class="font-semibold text-lg mb-2">Agent Revenue Tracking</h3>
+            <p class="text-gray-400 text-sm">See exactly how much revenue each AI agent (ChatGPT, Perplexity, Google AI) is generating for your store.</p>
+        </div>
+        <div class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+            <div class="text-purple-400 text-2xl mb-3">📈</div>
+            <h3 class="font-semibold text-lg mb-2">Conversion Analytics</h3>
+            <p class="text-gray-400 text-sm">Track agent-driven conversion rates vs. traditional channels. AI shoppers convert 42% better — prove it for your store.</p>
+        </div>
+        <div class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+            <div class="text-purple-400 text-2xl mb-3">⚡</div>
+            <h3 class="font-semibold text-lg mb-2">One-Click Stripe Connect</h3>
+            <p class="text-gray-400 text-sm">Connect your Stripe account in seconds. We automatically sync your agent-tagged transactions — no setup required.</p>
+        </div>
+    </section>
+
+    <!-- Stats badge -->
+    <section class="max-w-4xl mx-auto px-6 pb-24 text-center">
+        <div class="inline-flex items-center gap-2 bg-gray-900 rounded-full px-6 py-3 border border-gray-800">
+            <span class="text-green-400">●</span>
+            <span class="text-gray-300">Agentic commerce market: <strong class="text-white">$7.7B → $65B by 2033</strong></span>
+        </div>
+    </section>
+</body>
+</html>
