@@ -62,7 +62,7 @@ async def oauth_callback(request: Request, code: str, state: str):
 @router.post("/oauth/sync")
 async def sync_now(request: Request):
     user = get_current_user(request)
-    if not user or not user.get("stripe_access_token"):
+    if not user or not user["stripe_access_token"]:
         return RedirectResponse("/dashboard", status_code=303)
 
     with get_db() as db:

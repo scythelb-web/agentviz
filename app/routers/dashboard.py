@@ -14,7 +14,7 @@ async def dashboard(request: Request):
     if not user:
         return RedirectResponse("/auth/login", status_code=303)
 
-    stripe_connected = bool(user.get("stripe_access_token"))
+    stripe_connected = bool(user["stripe_access_token"]) if user else False
 
     with get_db() as db:
         # Agent breakdown
