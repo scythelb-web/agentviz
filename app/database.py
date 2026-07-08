@@ -114,6 +114,7 @@ def init_db():
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 stripe_customer_id TEXT,
                 plan TEXT DEFAULT 'starter',
+                stripe_subscription_id TEXT,
                 stripe_account_id TEXT,
                 stripe_access_token TEXT,
                 stripe_refresh_token TEXT
@@ -143,3 +144,8 @@ def init_db():
                 status TEXT DEFAULT 'running'
             );
         """)
+        # Migration: add stripe_subscription_id to existing databases
+        try:
+            db.execute("ALTER TABLE users ADD COLUMN stripe_subscription_id TEXT")
+        except Exception:
+            pass

@@ -7,7 +7,7 @@ from pathlib import Path
 
 from app.config import STRIPE_SECRET_KEY
 from app.database import init_db
-from app.routers import auth, dashboard, oauth
+from app.routers import auth, dashboard, oauth, billing, webhooks
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -21,12 +21,14 @@ static_dir = Path(__file__).parent / "static"
 static_dir.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-from app.routers import auth, dashboard, oauth, settings
+from app.routers import auth, dashboard, oauth, settings, billing, webhooks
 
 app.include_router(auth.router)
 app.include_router(dashboard.router)
 app.include_router(oauth.router)
 app.include_router(settings.router)
+app.include_router(billing.router)
+app.include_router(webhooks.router)
 
 
 @app.on_event("startup")
