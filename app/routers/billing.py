@@ -9,9 +9,9 @@ from app.database import get_db
 router = APIRouter(prefix="/billing", tags=["billing"])
 
 PRICE_IDS = {
-    "starter": "price_REPLACE_agentviz_starter",
-    "growth":  "price_REPLACE_agentviz_growth",
-    "scale":   "price_REPLACE_agentviz_scale",
+    "starter": "price_1Tr3BlIh3bqeW0wSCz0dnCdI",
+    "growth": "price_1Tr3CKIh3bqeW0wS1k6liJTC",
+    "scale": "price_1Tr3CkIh3bqeW0wSQbOhIdxC",
 }
 
 
